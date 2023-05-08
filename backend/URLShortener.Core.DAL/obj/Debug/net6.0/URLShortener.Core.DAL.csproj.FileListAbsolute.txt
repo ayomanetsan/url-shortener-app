@@ -1,0 +1,12 @@
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\bin\Debug\net6.0\URLShortener.Core.DAL.deps.json
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\bin\Debug\net6.0\URLShortener.Core.DAL.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\bin\Debug\net6.0\URLShortener.Core.DAL.pdb
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.csproj.AssemblyReference.cache
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.AssemblyInfoInputs.cache
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.AssemblyInfo.cs
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.csproj.CoreCompileInputs.cache
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\refint\URLShortener.Core.DAL.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\URLShortener.Core.DAL.pdb
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core.DAL\obj\Debug\net6.0\ref\URLShortener.Core.DAL.dll

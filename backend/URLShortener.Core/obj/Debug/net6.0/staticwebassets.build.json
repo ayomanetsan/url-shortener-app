@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "Yq4jZ+GaGGvW4BJP2wVd6Q+JN5cS5yA2sMjOM2ufz94=",
-  "Source": "URLShortener.Core",
-  "BasePath": "_content/URLShortener.Core",
+  "Hash": "5tqiDiTaqOUVS1jEC4Twl+n5nVC2Nn8BBJpGr0grC0c=",
+  "Source": "URLShortener.Core.WebAPI",
+  "BasePath": "_content/URLShortener.Core.WebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
