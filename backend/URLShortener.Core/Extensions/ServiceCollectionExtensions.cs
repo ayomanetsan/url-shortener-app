@@ -23,6 +23,7 @@ namespace URLShortener.Core.Extensions
         public static void ConfigureCustomServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUrlService, UrlService>();
         }
 
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
