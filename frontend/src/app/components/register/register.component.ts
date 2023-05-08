@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
-import { NewUser } from '../models/newUser';
-import { User } from '../models/user';
+import { NewUser } from '../../models/newUser';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-register',
