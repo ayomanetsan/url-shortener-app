@@ -42,32 +42,34 @@ namespace URLShortener.Core.BLL.Services
 
             if (dbUrl == null)
             {
-                var maxId = await _context.Urls.MaxAsync(u => u.Id) + 1;
-
                 dbUrl = new Url { };
                 dbUrl.CreatedBy = new User { };
                 dbUrl.OriginalUrl = url;
-                dbUrl.ShortUrl = Encode(maxId);
+                var id = Guid.NewGuid().ToString("N").Substring(0, 8);
+                dbUrl.ShortUrl = Encode(id);
 
                 _context.Urls.Add(dbUrl);
                 await _context.SaveChangesAsync();
+
+                return dbUrl.ShortUrl;
             }
 
-            return dbUrl.ShortUrl;
+            throw new ArgumentException("This URL already exists");
         }
 
-        private string Encode(uint id)
+        private string Encode(string id)
         {
             var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
             var sb = new StringBuilder();
-            while (id > 0)
+            for (int i = 0; i < id.Length; i += 2)
             {
-                sb.Append(chars[(int)id % 62]);
-                id /= 62;
+                var chunk = id.Substring(i, 2);
+                var index = Convert.ToInt32(chunk, 16) % 62;
+                sb.Append(chars[index]);
             }
 
-            return new string(sb.ToString().Reverse().ToArray());
+            return sb.ToString();
         }
     }
 }
