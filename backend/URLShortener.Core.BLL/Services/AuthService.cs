@@ -43,7 +43,25 @@ namespace URLShortener.Core.BLL.Services
 
         public async Task<UserDto> RegisterAsync(User user)
         {
-            throw new NotImplementedException();        
+            var dbUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+
+            if (dbUser == null)
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                return new UserDto
+                {
+                    FullName = user.FirstName + " " + user.LastName,
+                    IsAdmin = false,
+                    Token = GenerateAccessToken(user),
+                };
+            }
+            else
+            {
+                throw new Exception("User already exists. Please try logging in instead");
+            }
+
         }
 
         public string GenerateAccessToken(User user)
