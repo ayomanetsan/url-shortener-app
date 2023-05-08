@@ -20,6 +20,11 @@ namespace URLShortener.Core.Extensions
                     opt => opt.MigrationsAssembly(typeof(UrlShortenerDbContext).Assembly.GetName().Name)));
         }
 
+        public static void ConfigureCustomServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddScoped<IAuthService, AuthService>();
+        }
+
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = new JwtSettings();
