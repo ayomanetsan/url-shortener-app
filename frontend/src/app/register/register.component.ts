@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
+import { NewUser } from '../models/newUser';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-register',
@@ -20,17 +22,18 @@ export class RegisterComponent {
   });
 
   signUp() {
-    const formData = this.regForm.value;
+    if (this.regForm.valid) {
+      const newUser: NewUser = { ...this.regForm.value } as NewUser;
 
-    console.log(formData);
-
-    this.http.post(`${environment.apiBaseUrl}/auth/register`, formData).subscribe(
-      (response) => {
-        console.log('API call successful:', response);
-      },
-      (error) => {
-        console.log('API call error:', error);
-      }
-    );
+      this.http.post<User>(`${environment.apiBaseUrl}/auth/register`, newUser).subscribe(
+        (response: User) => {
+          var userJson = JSON.stringify(response);
+          localStorage.setItem('user', userJson);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }
