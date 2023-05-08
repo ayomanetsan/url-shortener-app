@@ -1,0 +1,18 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--night);
+    padding: 0.75rem;
+}
+a {
+    font-size: 1.25rem;
+
+    color: #fff;
+    text-decoration: none;
+}
+
+.auth  {
+    display: flex;
+    gap: 0.75rem;
+}
