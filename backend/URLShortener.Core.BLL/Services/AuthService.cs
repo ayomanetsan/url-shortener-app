@@ -1,4 +1,5 @@
-﻿using URLShortener.Core.BLL.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using URLShortener.Core.BLL.Interfaces;
 using URLShortener.Core.Common.DTO;
 using URLShortener.Core.DAL.Context;
 using URLShortener.Core.DAL.Entitites;
@@ -14,9 +15,30 @@ namespace URLShortener.Core.BLL.Services
             _context = context;
         }
 
-        public Task<UserDto> LoginAsync(UserDto user)
+        public async Task<UserDto> LoginAsync(LoginDto user)
         {
-            throw new NotImplementedException();
+            var dbUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+
+            if (dbUser != null)
+            {
+                if (dbUser.Password == user.Password)
+                {
+                    return new UserDto
+                    {
+                        FullName = dbUser.FirstName + " " + dbUser.LastName,
+                        IsAdmin = dbUser.IsAdmin,
+                        Token = GenerateAccessToken(dbUser),
+                    };
+                }
+                else
+                {
+                    throw new ArgumentException("Password doesn't match");
+                }
+            }
+            else
+            {
+                throw new ArgumentException("The user doesn't exist");
+            }
         }
 
         public async Task<UserDto> RegisterAsync(User user)
