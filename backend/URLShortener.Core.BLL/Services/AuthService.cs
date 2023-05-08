@@ -1,4 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using URLShortener.Core.BLL.Interfaces;
 using URLShortener.Core.Common.DTO;
 using URLShortener.Core.DAL.Context;
@@ -9,10 +14,13 @@ namespace URLShortener.Core.BLL.Services
     public class AuthService : IAuthService
     {
         private UrlShortenerDbContext _context;
+        private IConfiguration _configuration;
 
-        public AuthService(UrlShortenerDbContext context)
+        public AuthService(UrlShortenerDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+
         }
 
         public async Task<UserDto> LoginAsync(LoginDto user)
@@ -64,9 +72,22 @@ namespace URLShortener.Core.BLL.Services
 
         }
 
-        public string GenerateAccessToken(User user)
+        private string GenerateAccessToken(User user)
         {
-            throw new NotImplementedException();
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:SecretKey"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, user.Email),
+                    new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User")
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

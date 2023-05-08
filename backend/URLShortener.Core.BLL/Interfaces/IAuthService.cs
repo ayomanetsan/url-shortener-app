@@ -8,7 +8,5 @@ namespace URLShortener.Core.BLL.Interfaces
         Task<UserDto> LoginAsync(LoginDto user);
 
         Task<UserDto> RegisterAsync(User user);
-
-        string GenerateAccessToken(User user);
     }
 }
