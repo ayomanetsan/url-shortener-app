@@ -87,3 +87,8 @@ C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLSho
 C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\URLShortener.Core.BLL.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\URLShortener.Core.Common.dll
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\URLShortener.Core.BLL.pdb
+C:\Users\lasid\OneDrive\Documents\URL Shortener\url-shortener-app\backend\URLShortener.Core\bin\Debug\net6.0\URLShortener.Core.Common.pdb
