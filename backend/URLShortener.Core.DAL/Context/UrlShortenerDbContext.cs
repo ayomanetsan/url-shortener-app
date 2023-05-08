@@ -11,5 +11,6 @@ namespace URLShortener.Core.DAL.Context
         }
 
         public DbSet<User> Users { get; set; }
-    }
+        public DbSet<Url> Urls { get; set; }
+     }
 }
