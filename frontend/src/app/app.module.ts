@@ -13,6 +13,7 @@ import { RedirectComponent } from './components/redirect/redirect.component';
 import { InfoComponent } from './components/info/info.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreationModalComponent } from './components/creation-modal/creation-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     UrlTableComponent,
     RedirectComponent,
-    InfoComponent
+    InfoComponent,
+    CreationModalComponent
   ],
   imports: [
     BrowserModule,
