@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    margin: 2rem;
+  }
+  
+
+.create-btn {
+    font-size: 1.25rem;
+    color: #fff;
+
+    padding: 5px 25px;
+    margin-bottom: 1rem;
+
+    border: none;
+    border-radius: 2rem;
+    background: var(--secondary);
+
+    cursor: pointer;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td, th {
+    font-weight: normal;
+    font-size: 1.25rem;
+
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--secondary);
+    
+}
+
+td button {
+    font-size: 1.25rem;
+    color: #fff;
+
+    padding: 5px 25px;
+
+    border: none;
+    border-radius: 2rem;
+    background: var(--secondary);
+
+    cursor: pointer;
+}
+
+thead {
+    background-color: var(--secondary);
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+}
