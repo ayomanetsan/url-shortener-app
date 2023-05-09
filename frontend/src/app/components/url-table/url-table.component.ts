@@ -34,4 +34,12 @@ export class UrlTableComponent implements OnInit {
 
     return this.url.Shorten(requestUrl).subscribe(response => this.urlList.push(response));
   }
+
+  deleteUrl(url: string) {
+    const requestUrl: RequestUrl = {
+      url: url
+    }
+    
+    return this.url.Delete(requestUrl).subscribe(response => this.urlList = response);
+  }
 }
