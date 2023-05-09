@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UrlTableComponent } from './components/url-table/url-table.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { InfoComponent } from './components/info/info.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     RegisterComponent,
     LoginComponent,
     UrlTableComponent,
-    RedirectComponent
+    RedirectComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     HttpClientModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

@@ -11,8 +11,8 @@
     <tr *ngFor="let url of urlList">
       <td><a [routerLink]="['/sh', url.shortUrl]">localhost:4200/sh/{{ url.shortUrl }}</a></td>
       <td><a [href]='url.originalUrl'>{{ url.originalUrl }}</a></td>
-      <td *ngIf="isAuthenticated()"><a [routerLink]="['/info', url.shortUrl]">View</a></td>
-      <td *ngIf="(isCreator(url.createdBy?.email || '' && isAuthenticated()) || isAdmin())"><button (click)="deleteUrl(url.shortUrl)">Delete</button></td>
+      <td *ngIf="isAuthenticated()"><a [routerLink]="['/info/', url.id]">View</a></td>
+      <td *ngIf="(isCreator(url.createdBy?.email || '') || isAdmin() && isAuthenticated())"><button (click)="deleteUrl(url.shortUrl)">Delete</button></td>
     </tr>
   </tbody>
 </table>
