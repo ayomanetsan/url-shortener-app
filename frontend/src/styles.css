@@ -9,3 +9,5 @@
     --night: #00120B;
     --lavender: #D8E4FF;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

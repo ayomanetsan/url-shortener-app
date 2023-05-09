@@ -12,6 +12,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { InfoComponent } from './components/info/info.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AuthGuard } from './core/guards/auth.guard';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
