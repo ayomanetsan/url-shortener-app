@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using URLShortener.Core.BLL.Interfaces;
 using URLShortener.Core.Common.DTO;
 using URLShortener.Core.DAL.Entitites;
@@ -47,6 +48,20 @@ namespace URLShortener.Core.WebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("redirect/{shortUrl}")]
+        public async Task<ActionResult<string>> Redirect(string shortUrl)
+        {
+            try
+            {
+                var dbUrl = await _urlService.Redirect(shortUrl);
+                return Ok(dbUrl);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
             }
         }
     }

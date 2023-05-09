@@ -58,6 +58,18 @@ namespace URLShortener.Core.BLL.Services
             throw new ArgumentException("This URL already exists");
         }
 
+        public async Task<string> Redirect(string shortUrl)
+        {
+            var dbUrl = await _context.Urls.FirstOrDefaultAsync(u => u.ShortUrl == shortUrl);
+
+            if (dbUrl != null)
+            {
+                return dbUrl.OriginalUrl;
+            }
+
+            throw new ArgumentException("URL with such code does not exist");
+        }
+
         private string Encode(string id)
         {
             var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
