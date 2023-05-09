@@ -13,6 +13,6 @@ namespace URLShortener.Core.BLL.Interfaces
 
         Task<ICollection<Url>> GetUrls();
 
-        Task<string> ShortenUrl(string url);
+        Task<Url> ShortenUrl(string url, string email);
     }
 }

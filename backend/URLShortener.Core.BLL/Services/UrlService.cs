@@ -21,7 +21,7 @@ namespace URLShortener.Core.BLL.Services
 
         public async Task<Url> GetUrl(uint id)
         {
-            var dbUrl = await _context.Urls.FirstOrDefaultAsync(u => u.Id == id);
+            var dbUrl = await _context.Urls.Include(u => u.CreatedBy).FirstOrDefaultAsync(u => u.Id == id);
 
             if (dbUrl == null)
             {
@@ -33,17 +33,18 @@ namespace URLShortener.Core.BLL.Services
 
         public async Task<ICollection<Url>> GetUrls()
         {
-            return await _context.Urls.ToListAsync();
+            return await _context.Urls.Include(u => u.CreatedBy).ToListAsync();
         }
 
-        public async Task<string> ShortenUrl(string url)
+        public async Task<Url> ShortenUrl(string url, string email)
         {
             var dbUrl = _context.Urls.FirstOrDefault(u => u.OriginalUrl == url);
 
             if (dbUrl == null)
             {
                 dbUrl = new Url { };
-                dbUrl.CreatedBy = new User { };
+                dbUrl.CreatedBy = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+                dbUrl.CreatedAt = DateTime.Now;
                 dbUrl.OriginalUrl = url;
                 var id = Guid.NewGuid().ToString("N").Substring(0, 8);
                 dbUrl.ShortUrl = Encode(id);
@@ -51,7 +52,7 @@ namespace URLShortener.Core.BLL.Services
                 _context.Urls.Add(dbUrl);
                 await _context.SaveChangesAsync();
 
-                return dbUrl.ShortUrl;
+                return dbUrl;
             }
 
             throw new ArgumentException("This URL already exists");

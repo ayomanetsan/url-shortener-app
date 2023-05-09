@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UrlService } from 'src/app/core/services/url.service';
+import { RequestUrl } from 'src/app/models/requestUrl';
 import { Url } from 'src/app/models/url';
 
 @Component({
@@ -15,5 +16,13 @@ export class UrlTableComponent implements OnInit {
 
   ngOnInit() { 
     this.url.GetAll().subscribe(response => this.urlList = response);
+  }
+
+  shortenUrl(url: string) {
+    const requestUrl: RequestUrl = {
+      url: url
+    }
+
+    return this.url.Shorten(requestUrl).subscribe(response => this.urlList.push(response));
   }
 }

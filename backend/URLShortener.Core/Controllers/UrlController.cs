@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using URLShortener.Core.BLL.Interfaces;
+using URLShortener.Core.Common.DTO;
 using URLShortener.Core.DAL.Entitites;
 
 namespace URLShortener.Core.WebAPI.Controllers
@@ -36,13 +36,13 @@ namespace URLShortener.Core.WebAPI.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task<ActionResult<string>> Shorten(string url)
+        [HttpPost("shorten")]
+        public async Task<ActionResult<Url>> Shorten([FromBody] RequestUrl url)
         {
             try
             {
-                var shortUrl = await _urlService.ShortenUrl(url);
-                return Ok(shortUrl);
+                var dbUrl = await _urlService.ShortenUrl(url.Url, HttpContext.User.Identity.Name);
+                return Ok(dbUrl);
             }
             catch (Exception ex)
             {

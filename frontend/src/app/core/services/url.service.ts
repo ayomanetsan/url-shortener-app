@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RequestUrl } from 'src/app/models/requestUrl';
 import { Url } from 'src/app/models/url';
 import { environment } from 'src/environments/environment';
 
@@ -19,7 +20,7 @@ export class UrlService {
     return this.http.get<Url>(`${environment.apiBaseUrl}/url/${id}`);
   }
 
-  Shorten(url: string): Observable<string> {
-    return this.http.post<string>(`${environment.apiBaseUrl}/url/shorten`, { url });
+  Shorten(url: RequestUrl): Observable<Url> {
+    return this.http.post<Url>(`${environment.apiBaseUrl}/url/shorten`, url);
   }
 }
