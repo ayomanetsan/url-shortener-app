@@ -19,6 +19,10 @@ export class UrlTableComponent implements OnInit {
     this.url.GetAll().subscribe(response => this.urlList = response);
   }
   
+  isAdmin(): boolean {
+    return this.auth.isAdmin();
+  }
+
   isAuthenticated(): boolean {
     return this.auth.isAuthenticated();
   }
