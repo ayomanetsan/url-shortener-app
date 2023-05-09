@@ -15,6 +15,7 @@ import { InfoComponent } from './components/info/info.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreationModalComponent } from './components/creation-modal/creation-modal.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CreationModalComponent } from './components/creation-modal/creation-mod
     UrlTableComponent,
     RedirectComponent,
     InfoComponent,
-    CreationModalComponent
+    CreationModalComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
