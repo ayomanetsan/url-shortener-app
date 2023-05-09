@@ -1,1 +1,21 @@
-<p>url-table works!</p>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Short URL</th>
+        <th>Original URL</th>
+        <th>Created By</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let url of urlList">
+        <td>{{ url.id }}</td>
+        <td>{{ url.shortUrl }}</td>
+        <td>{{ url.originalUrl }}</td>
+        <td>{{ url.createdBy }}</td>
+        <td>{{ url.createdAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
