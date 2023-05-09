@@ -9,8 +9,26 @@ export class AuthService {
   constructor() { }
 
   isAuthenticated(): boolean {
-    const decoded: { exp: string } = jwt_decode(localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string).token : null);
-    
-    return parseInt(decoded.exp) > Date.now() / 1000;
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    const decoded: { exp: string } | null = user ? jwt_decode(user.token) : null;
+
+    if (decoded) {
+      return parseInt(decoded.exp) > Date.now() / 1000;
+    }
+
+    return false;
+  }
+
+  isCreator(email: string) {
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    const decoded: { unique_name: string } | null = user ? jwt_decode(user.token) : null;
+
+    if (decoded) {
+      return decoded.unique_name == email;
+    }
+
+    return false;
   }
 }

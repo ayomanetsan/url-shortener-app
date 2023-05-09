@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { UrlService } from 'src/app/core/services/url.service';
 import { RequestUrl } from 'src/app/models/requestUrl';
 import { Url } from 'src/app/models/url';
@@ -12,10 +13,18 @@ export class UrlTableComponent implements OnInit {
   
   urlList: Url[] = [];
 
-  constructor(private url: UrlService) { }
+  constructor(private url: UrlService, private auth: AuthService) { }
 
   ngOnInit() { 
     this.url.GetAll().subscribe(response => this.urlList = response);
+  }
+  
+  isAuthenticated(): boolean {
+    return this.auth.isAuthenticated();
+  }
+
+  isCreator(email: string): boolean {
+    return this.auth.isCreator(email);
   }
 
   shortenUrl(url: string) {
