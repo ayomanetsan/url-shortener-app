@@ -40,4 +40,5 @@ input {
 
 .submit-btn:disabled {
     background: var(--error);
+    cursor: not-allowed;
 }
