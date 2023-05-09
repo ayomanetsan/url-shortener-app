@@ -3,9 +3,12 @@
     <a class="button" routerLink="/table">Home</a>
     <a class="button" routerLink="/about">About</a>
   </div>
-  <div class="auth">
+  <div *ngIf="!isAuthenticated()" class="auth">
     <a class="button" routerLink="/sign-up">Register</a>
     <a class="button" routerLink="/sign-in">Login</a>
+  </div>
+  <div *ngIf="isAuthenticated()" class="auth">
+    <a class="button" routerLink="/table" (click)="logout()">Logout</a>
   </div>
 </nav>
 <router-outlet></router-outlet>
