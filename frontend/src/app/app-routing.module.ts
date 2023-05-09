@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UrlTableComponent } from './components/url-table/url-table.component';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { InfoComponent } from './components/info/info.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [];
 
@@ -14,7 +15,7 @@ const routes: Routes = [];
       { path: 'sign-up', component: RegisterComponent },
       { path: 'sign-in', component: LoginComponent },
       { path: 'table', component: UrlTableComponent },
-      { path: 'info', component: InfoComponent },
+      { path: 'info/:id', component: InfoComponent, canActivate: [AuthGuard] },
       { path: 'sh/:shortUrl', component: RedirectComponent },
   ]),
 ],

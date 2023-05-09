@@ -11,6 +11,7 @@ import { UrlTableComponent } from './components/url-table/url-table.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { RedirectComponent } from './components/redirect/redirect.component';
 import { InfoComponent } from './components/info/info.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InfoComponent } from './components/info/info.component';
     HttpClientModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
