@@ -1,1 +1,16 @@
-<p>creation-modal works!</p>
+<form [formGroup]="urlForm">
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input type="text" id="url" formControlName="url" class="form-control">
+      <div *ngIf="urlForm.controls['url'].errors && (urlForm.controls['url'].dirty || urlForm.controls['url'].touched)" class="invalid-feedback">
+        <div *ngIf="urlForm.controls['url'].errors['required']">
+          URL is required.
+        </div>
+        <div *ngIf="urlForm.controls['url'].errors['pattern']">
+          URL must start with http:// or https://.
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!urlForm.valid" (click)="createUrl()">Submit</button>
+  </form>
+  
