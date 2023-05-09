@@ -1,13 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\URLShortener.Core",
     "\\URLShortener.Core.BLL",
     "\\URLShortener.Core.BLL\\Interfaces",
     "\\URLShortener.Core.Common",
     "\\URLShortener.Core.Common\\DTO",
     "\\URLShortener.Core.DAL",
-    "\\URLShortener.Core.DAL\\Entitites"
+    "\\URLShortener.Core.DAL\\Entitites",
+    "\\URLShortener.Core\\Extensions"
   ],
-  "SelectedNode": "\\URLShortener.Core.Common\\DTO\\UserDto.cs",
+  "SelectedNode": "\\URLShortener.Core\\Extensions\\ServiceCollectionExtensions.cs",
   "PreviewInSolutionExplorer": false
 }
