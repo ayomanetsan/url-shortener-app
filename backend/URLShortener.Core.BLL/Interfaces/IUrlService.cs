@@ -19,6 +19,8 @@ namespace URLShortener.Core.BLL.Interfaces
 
         Task<string> Redirect(string shortUrl);
 
-        Task<string> SetDescription(string description)
+        Task<Description> SetDescription(string description);
+
+        Task<Description> GetDescription();
     }
 }

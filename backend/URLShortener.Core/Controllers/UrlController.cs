@@ -78,5 +78,17 @@ namespace URLShortener.Core.WebAPI.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpPost("description/set")]
+        public async Task<ActionResult<Description>> SetDescription([FromBody] Description description)
+        {
+            return Ok(await _urlService.SetDescription(description.Content));
+        }
+
+        [HttpGet("description")]
+        public async Task<ActionResult<Description>> GetDescription()
+        {
+            return Ok(await _urlService.GetDescription());
+        }
     }
 }
