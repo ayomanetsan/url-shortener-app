@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { NewUser } from '../../models/newUser';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import { User } from '../../models/user';
 })
 export class RegisterComponent {
   
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   
   regForm = new FormGroup({
     firstName: new FormControl(''),
@@ -29,9 +30,10 @@ export class RegisterComponent {
         (response: User) => {
           var userJson = JSON.stringify(response);
           localStorage.setItem('user', userJson);
+          this.router.navigate(['/table']);
         },
         (error) => {
-          console.log(error);
+          alert('User already exists. Please try logging in instead');
         }
       );
     }

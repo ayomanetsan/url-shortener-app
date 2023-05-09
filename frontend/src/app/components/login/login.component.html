@@ -3,7 +3,7 @@
         <label>
           Email:
           <input type="email" formControlName="email" required>
-          <div *ngIf="logForm.controls.email.invalid && (logForm.controls.email.dirty || logForm.controls.email.touched)">
+          <div *ngIf="logForm.controls.email.invalid && (logForm.controls.email.dirty || logForm.controls.email.touched)" class="error-surface">
             <div *ngIf="logForm.controls.email.errors?.['required']">
               Email is required
             </div>
@@ -16,13 +16,13 @@
         <label>
           Password:
           <input type="password" formControlName="password" required>
-          <div *ngIf="logForm.controls.password.invalid && (logForm.controls.password.dirty || logForm.controls.password.touched)">
+          <div *ngIf="logForm.controls.password.invalid && (logForm.controls.password.dirty || logForm.controls.password.touched)" class="error-surface">
             <div *ngIf="logForm.controls.password.errors?.['required']">
               Password is required
             </div>
           </div>
         </label>
 
-        <button type="submit" [disabled]="logForm.invalid">Login</button>
+        <button class="login-btn" type="submit" [disabled]="logForm.invalid">Login</button>
       </form>
 </div>

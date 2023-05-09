@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UrlService } from 'src/app/core/services/url.service';
 import { Url } from 'src/app/models/url';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-info',
@@ -22,13 +23,19 @@ export class InfoComponent implements OnInit {
     createdAt: new Date(),
   };
 
+  date: string = '';
+
   constructor(private url: UrlService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (id) {
-      this.url.GetById(parseInt(id)).subscribe(response => this.urlInfo = response);
+      this.url.GetById(parseInt(id)).subscribe(response => {
+        this.urlInfo = response;
+
+        this.date = moment(response.createdAt).format('MMMM Do YYYY, h:mm:ss a');
+      });
     }
   }
 }
