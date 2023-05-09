@@ -18,5 +18,7 @@ namespace URLShortener.Core.BLL.Interfaces
         Task<ICollection<Url>> DeleteUrl(string shortUrl);
 
         Task<string> Redirect(string shortUrl);
+
+        Task<string> SetDescription(string description)
     }
 }

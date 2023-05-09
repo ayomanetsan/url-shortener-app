@@ -84,6 +84,20 @@ namespace URLShortener.Core.BLL.Services
             throw new ArgumentException("URL with such code does not exist");
         }
 
+        public async Task<string> SetDescription(string description)
+        {
+            var newDescription = new Description
+            {
+                Content = description,
+                UpdatedAt = DateTime.Now,
+            };
+
+            _context.Description.Add(newDescription);
+            await _context.SaveChangesAsync();
+
+            return newDescription.Content;
+        }
+
         private string Encode(string id)
         {
             var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
