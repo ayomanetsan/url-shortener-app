@@ -16,6 +16,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreationModalComponent } from './components/creation-modal/creation-modal.component';
 import { AboutComponent } from './components/about/about.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AboutComponent } from './components/about/about.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
