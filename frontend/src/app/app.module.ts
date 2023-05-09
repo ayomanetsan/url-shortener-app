@@ -9,13 +9,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { UrlTableComponent } from './components/url-table/url-table.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { RedirectComponent } from './components/redirect/redirect.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    UrlTableComponent
+    UrlTableComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,

@@ -52,12 +52,12 @@ namespace URLShortener.Core.WebAPI.Controllers
         }
 
         [HttpGet("redirect/{shortUrl}")]
-        public async Task<ActionResult<string>> Redirect(string shortUrl)
+        public async Task<ActionResult<RequestUrl>> Redirect(string shortUrl)
         {
             try
             {
                 var dbUrl = await _urlService.Redirect(shortUrl);
-                return Ok(dbUrl);
+                return Ok(new RequestUrl { Url = dbUrl });
             }
             catch (Exception ex)
             {
