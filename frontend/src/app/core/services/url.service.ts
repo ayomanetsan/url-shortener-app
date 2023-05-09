@@ -23,4 +23,8 @@ export class UrlService {
   Shorten(url: RequestUrl): Observable<Url> {
     return this.http.post<Url>(`${environment.apiBaseUrl}/url/shorten`, url);
   }
+
+  Delete(url: RequestUrl): Observable<Url[]> {
+    return this.http.delete<Url[]>(`${environment.apiBaseUrl}/url/delete?shortUrl=${url.url}`);
+  }
 }

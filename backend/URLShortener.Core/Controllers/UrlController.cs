@@ -51,6 +51,20 @@ namespace URLShortener.Core.WebAPI.Controllers
             }
         }
 
+        [HttpDelete("delete")]
+        public async Task<ActionResult<ICollection<Url>>> Delete(string shortUrl)
+        {
+            try
+            {
+                var urlList = await _urlService.DeleteUrl(shortUrl);
+                return Ok(urlList);
+            }
+            catch (Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
         [HttpGet("redirect/{shortUrl}")]
         public async Task<ActionResult<RequestUrl>> Redirect(string shortUrl)
         {
