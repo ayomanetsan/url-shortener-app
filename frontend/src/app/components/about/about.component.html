@@ -1,4 +1,6 @@
-<div>
+<div class="container">
+    <h1>Shortening Algorithm Explained</h1>
+
     <textarea [(ngModel)]="description" [disabled]="!isAdmin()"></textarea>
-    <button *ngIf="isAdmin()" (click)="setDescription()">Save</button>
+    <button class="save-btn" *ngIf="isAdmin()" (click)="setDescription()">Save</button>
 </div>
