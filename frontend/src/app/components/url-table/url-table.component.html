@@ -1,20 +1,18 @@
 <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Short URL</th>
-        <th>Original URL</th>
-        <th>Created By</th>
-        <th>Created At</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let url of urlList">
-        <td>{{ url.id }}</td>
-        <td>{{ url.shortUrl }}</td>
-        <td>{{ url.originalUrl }}</td>
-        <td>{{ url.createdBy }}</td>
-        <td>{{ url.createdAt }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th>Short URL</th>
+      <th>Original URL</th>
+      <th *ngIf="isAuthenticated()">Info</th>
+      <th *ngIf="isAuthenticated()">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let url of urlList">
+      <td><a [routerLink]="['/sh', url.shortUrl]">localhost:4200/sh/{{ url.shortUrl }}</a></td>
+      <td><a [href]='url.originalUrl'>{{ url.originalUrl }}</a></td>
+      <td *ngIf="isAuthenticated()"><a [routerLink]="['/info', url.shortUrl]">View</a></td>
+      <td *ngIf="isCreator(url.createdBy.email)"><button>Delete</button></td>
+    </tr>
+  </tbody>
+</table>
