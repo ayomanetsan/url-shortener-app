@@ -6,8 +6,14 @@
 }
 
 :root {
-    --night: #00120B;
-    --lavender: #D8E4FF;
+    --primary: #F1F6F9;
+    --secondary: #394867;
+    --accent: #212A3E;
 }
-html, body { height: 100%; }
+
+html, body { 
+    height: 100%; 
+    background-color: var(--primary);
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
