@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using URLShortener.Core.BLL.Interfaces;
 using URLShortener.Core.DAL.Entitites;
 
@@ -15,13 +16,13 @@ namespace URLShortener.Core.WebAPI.Controllers
             _urlService = urlService;
         }
 
-        [HttpGet("urls")]
+        [HttpGet("all")]
         public async Task<ActionResult<ICollection<Url>>> GetAll()
         {
             return Ok(await _urlService.GetUrls());
         }
 
-        [HttpGet("urls/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Url>> Get(uint id)
         {
             try
