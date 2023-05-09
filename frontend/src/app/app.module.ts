@@ -10,6 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UrlTableComponent } from './components/url-table/url-table.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { RedirectComponent } from './components/redirect/redirect.component';
+import { InfoComponent } from './components/info/info.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RedirectComponent } from './components/redirect/redirect.component';
     RegisterComponent,
     LoginComponent,
     UrlTableComponent,
-    RedirectComponent
+    RedirectComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
