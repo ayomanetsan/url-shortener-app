@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserCredentials } from 'src/app/models/userCredentials';
 import { environment } from 'src/environments/environment';
@@ -12,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginComponent {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   
   logForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -27,6 +28,7 @@ export class LoginComponent {
         (response: User) => {
           var userJson = JSON.stringify(response);
           localStorage.setItem('user', userJson);
+          this.router.navigate(['/table']);
         },
         (error) => {
           console.log(error);

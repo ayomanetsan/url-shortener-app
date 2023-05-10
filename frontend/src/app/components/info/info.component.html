@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Link <a [routerLink]="['/sh', urlInfo.shortUrl]">'{{ urlInfo.shortUrl }}'</a>  Information </h1>
+
+    <p>It was created by <strong>{{ urlInfo.createdBy.firstName }} {{ urlInfo.createdBy.lastName }}</strong> at {{ date }} </p>
+    
+    <p>Original URL is <a [href]="urlInfo.originalUrl">{{ urlInfo.originalUrl }}</a></p>
+</div>
+

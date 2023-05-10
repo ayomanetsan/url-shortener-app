@@ -6,13 +6,43 @@
     border-radius: 1rem;
     margin: 2rem;
     padding: 2rem;
-    background-color: rgba(0, 18, 1, 0.5);
+    background-color: var(--secondary-transparent);
     
-    font-size: 1.5rem;
-    color: #fff;
+    font-size: 1.25rem;
+    color: var(--primary);
 }
 
 input {
     display: block;
+    width: 20vw;
+
+    font-size: 1.25rem;
+    
+    border: none;
     margin: 0.5rem 0;
+}
+
+.error-surface {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--error);
+}
+
+.login-btn {
+    font-size: 1.25rem;
+    color: #fff;
+
+    padding: 5px 25px;
+    margin-top: 1rem;
+
+    border: none;
+    border-radius: 2rem;
+    background: var(--secondary);
+
+    cursor: pointer;
+}
+
+.login-btn:disabled {
+    background: var(--error);
+    cursor: not-allowed;
 }
