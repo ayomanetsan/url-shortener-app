@@ -117,9 +117,47 @@ namespace URLShortener.Tests
         [Fact]
         public async Task ShortenUrlExistingUrlThrowsArgumentException()
         {
-            var firstUrl = await _sut.ShortenUrl("http://test.com", "testuser@test.com");
+            var newUrl = await _sut.ShortenUrl("http://test.com", "testuser@test.com");
 
             await Assert.ThrowsAsync<ArgumentException>(() => _sut.ShortenUrl("http://test.com", "testuser@test.com"));
+        }
+
+        [Fact]
+        public async Task DeleteUrlExistingUrlReturnsRemainingUrls()
+        {
+            var creator = new User
+            {
+                FirstName = "Test",
+                LastName = "User",
+                Email = "testuser@hotmail.org",
+                Password = "password",
+            };
+
+            var url = new Url
+            {
+                Id = 1,
+                OriginalUrl = "http://new.com",
+                ShortUrl = "xtgx",
+                CreatedBy = creator,
+            };
+
+            using (var context = new UrlShortenerDbContext(_options))
+            {
+                context.Users.Add(creator);
+                context.Urls.Add(url);
+                await context.SaveChangesAsync();
+            }
+
+            var expected = await _sut.DeleteUrl("xtgx");
+
+            Assert.NotNull(expected);
+            Assert.DoesNotContain(expected, u => u.OriginalUrl == "http://new.com");
+        }
+
+        [Fact]
+        public async Task DeleteUrlNonExistingUrlThrowsArgumentException()
+        {
+            await Assert.ThrowsAsync<ArgumentException>(() => _sut.DeleteUrl("non-ex"));
         }
     }
 }
