@@ -86,5 +86,48 @@ namespace URLShortener.Tests
 
             await Assert.ThrowsAsync<ArgumentException>(() => _sut.LoginAsync(loginDto));
         }
+
+        [Fact]
+        public async Task RegisterAsyncWithValidCredentialsReturnsUserDto()
+        {
+            var user = new User
+            {
+                FirstName = "New",
+                LastName = "User",
+                Email = "newuser@test.com",
+                Password = "password"
+            };
+
+            var expected = await _sut.RegisterAsync(user);
+
+            Assert.NotNull(expected);
+            Assert.Equal("New User", expected.FullName);
+            Assert.False(expected.IsAdmin);
+            Assert.NotNull(expected.Token);
+        }
+
+        [Fact]
+        public async Task RegisterAsyncWithExistingUserThrowsArgumentException()
+        {
+            var user1 = new User
+            {
+                FirstName = "New",
+                LastName = "User",
+                Email = "newuser1@test.com",
+                Password = "password"
+            };
+
+            var user2 = new User
+            {
+                FirstName = "New",
+                LastName = "User",
+                Email = "newuser1@test.com",
+                Password = "password"
+            };
+
+            await _sut.RegisterAsync(user1);
+
+            await Assert.ThrowsAsync<Exception>(() => _sut.RegisterAsync(user2));
+        }
     }
 }
