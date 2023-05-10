@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Core.WebAPI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Core.DAL", "URLShortener.Core.DAL\URLShortener.Core.DAL.csproj", "{83BC41D1-73E3-4434-8DBD-719B9F4891FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Core.BLL", "URLShortener.Core.BLL\URLShortener.Core.BLL.csproj", "{731E94C3-F816-4AC2-9A7A-39FBAD91134C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Core.BLL", "URLShortener.Core.BLL\URLShortener.Core.BLL.csproj", "{731E94C3-F816-4AC2-9A7A-39FBAD91134C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Core.Common", "URLShortener.Core.Common\URLShortener.Core.Common.csproj", "{1B847BB7-48E6-4C47-BF81-E61E9F6517D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Core.Common", "URLShortener.Core.Common\URLShortener.Core.Common.csproj", "{1B847BB7-48E6-4C47-BF81-E61E9F6517D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Tests", "URLShortener.Tests\URLShortener.Tests.csproj", "{4ECD4C54-7012-418D-A122-1F955B542FF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1B847BB7-48E6-4C47-BF81-E61E9F6517D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B847BB7-48E6-4C47-BF81-E61E9F6517D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B847BB7-48E6-4C47-BF81-E61E9F6517D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ECD4C54-7012-418D-A122-1F955B542FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECD4C54-7012-418D-A122-1F955B542FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECD4C54-7012-418D-A122-1F955B542FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECD4C54-7012-418D-A122-1F955B542FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
