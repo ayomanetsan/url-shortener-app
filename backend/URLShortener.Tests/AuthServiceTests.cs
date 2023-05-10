@@ -56,5 +56,35 @@ namespace URLShortener.Tests
             Assert.False(expected.IsAdmin);
             Assert.NotNull(expected.Token);
         }
+
+        [Fact]
+        public async Task LoginAsyncWithInvalidPasswordThrowsArgumentException()
+        {
+            var user = new User
+            {
+                FirstName = "Test",
+                LastName = "User",
+                Email = "testuser@test.com",
+                Password = "password"
+            };
+
+            using (var context = new UrlShortenerDbContext(_options))
+            {
+                context.Users.Add(user);
+                await context.SaveChangesAsync();
+            }
+
+            var loginDto = new LoginDto { Email = "testuser@test.com", Password = "wrong" };
+
+            await Assert.ThrowsAsync<ArgumentException>(() => _sut.LoginAsync(loginDto));
+        }
+
+        [Fact]
+        public async Task LoginAsyncWithNonExistingCredentialsThrowsArgumentException()
+        {
+            var loginDto = new LoginDto { Email = "testuser@test.com", Password = "password" };
+
+            await Assert.ThrowsAsync<ArgumentException>(() => _sut.LoginAsync(loginDto));
+        }
     }
 }
