@@ -1,5 +1,4 @@
-# url-shortener-app
-#URL Shortener
+# URL Shortener
 This is a URL shortener web application that allows users to shorten any long URL and access it using a short equivalent. The application has the following views:
 
 - Login view: Allows users to login to their account or create a new one.
